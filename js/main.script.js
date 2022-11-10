@@ -181,7 +181,7 @@ const callSearch = async () => {
 const putMessage = (msg) => {
   const elemntInfo = document.createElement("div");
   elemntInfo.classList.add('info')
-  const link = `<p class"link-to-home"><a href="/" alt="Volver al inicio">🏡 Volver</a></p>`
+  const link = `<p class"link-to-home"><a href="/store" alt="Volver al inicio">🏡 Volver</a></p>`
   titleResult.classList.add("hidden");
   let menssage = `${msg}<p>${link}</p>`;
   elemntInfo.innerHTML = menssage;
