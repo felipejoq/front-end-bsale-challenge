@@ -1,0 +1,342 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Lato", sans-serif;
+}
+
+html,
+body {
+  margin: 0;
+  height: 100%;
+}
+
+a {
+  color: dodgerblue;
+  text-decoration: none;
+}
+
+a:visited {
+  color: dodgerblue;
+}
+
+li {
+  list-style: none;
+}
+
+main {
+  min-height: 110vh;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+main .hidden {
+  display: none;
+}
+
+main .showing {
+  visibility: visible;
+  opacity: 1;
+}
+
+main #mensaje-info {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  text-align: center;
+  font-weight: bold;
+}
+
+main #mensaje-info a {
+  text-decoration: none;
+  color: #fefefe;
+  border-radius: 5px;
+  padding: 15px;
+  background-color: #00baf0;
+  padding: 10px;
+  margin: 20px;
+}
+
+main .container-hard {
+  margin: auto;
+  padding: 10px;
+}
+
+main p {
+  margin: 15px 0;
+  font-size: 18px;
+  letter-spacing: 0.5px;
+}
+
+main .card-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-column-gap: 10px;
+}
+
+main .card-container .image-wrapper {
+  margin-bottom: 10px;
+  box-shadow: 0 5px 8px rgba(0, 0, 0, 0.6);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+main .card-container .image-wrapper img {
+  width: 100%;
+  max-height: 250px;
+  object-fit: cover;
+}
+
+main .card-container .image-wrapper.loading {
+  position: relative;
+}
+
+main .card-container .image-wrapper.loading::after {
+  content: "";
+  position: absolute;
+  background: #fefefe;
+  display: block;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 4;
+  height: 100%;
+  width: 100%;
+}
+
+main .loader {
+  text-align: center;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.1s ease-in;
+  border: 2px solid dodgerblue;
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  margin: auto;
+  margin-top: 10px;
+  animation: loader 0.5s infinite alternate;
+}
+
+main .loader.show {
+  visibility: visible;
+  opacity: 1;
+}
+
+main .product-info {
+  text-align: center;
+}
+
+main .product-name {
+  font-weight: 700;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  color: #393e46;
+}
+
+main .product-price {
+  font-weight: 700;
+  color: #ff4d00;
+}
+
+main .categories-list {
+  display: flex;
+  align-items: center;
+  justify-content: baseline;
+  flex-wrap: wrap;
+}
+
+main .categories-list li {
+  text-transform: uppercase;
+}
+
+main .header {
+  display: flex;
+  align-items: center;
+  justify-content: baseline;
+}
+
+main .title {
+  font-size: 15px;
+}
+
+main .title a {
+  color: #ffffff;
+}
+
+main .orange {
+  color: #d84100;
+}
+
+main .top-nav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #00baf0;
+  background: linear-gradient(to left, #f46b45, #eea849);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  color: #fff;
+  height: 50px;
+  padding: 1em;
+}
+
+main .top-nav a {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+main .search-bar {
+  display: flex;
+  align-items: center;
+}
+
+main .top-nav input[type="text"] {
+  padding: 6px;
+  border: none;
+  border-radius: 5px;
+  font-size: 17px;
+  vertical-align: middle;
+  width: 200px;
+}
+
+main .search-button {
+  cursor: pointer;
+  background-color: #fefefe;
+  color: #ff4d00;
+  border-radius: 5px;
+  padding: 6px;
+  font-size: 17px;
+  vertical-align: middle;
+  margin-left: 3px;
+  border: none;
+}
+
+main .menu > li {
+  margin: 0 0.5rem;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+main .menu {
+  display: flex;
+  flex-direction: row;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+main #menu-toggle {
+  display: none;
+}
+
+main .menu-button,
+.menu-button::before,
+.menu-button::after {
+  display: block;
+  background-color: #fff;
+  position: absolute;
+  height: 4px;
+  width: 30px;
+  transition: transform 400ms cubic-bezier(0.23, 1, 0.32, 1);
+  border-radius: 2px;
+}
+
+main .menu-button-container {
+  display: none;
+  height: 100%;
+  width: 30px;
+  cursor: pointer;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+main .menu-button::before {
+  content: "";
+  margin-top: -8px;
+}
+
+main .menu-button::after {
+  content: "";
+  margin-top: 8px;
+}
+
+main #menu-toggle:checked + .menu-button-container .menu-button::before {
+  margin-top: 0px;
+  transform: rotate(405deg);
+}
+
+main #menu-toggle:checked + .menu-button-container .menu-button {
+  background: rgba(255, 255, 255, 0);
+}
+
+main #menu-toggle:checked + .menu-button-container .menu-button::after {
+  margin-top: 0px;
+  transform: rotate(-405deg);
+}
+
+@keyframes loader {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(0.8);
+  }
+}
+
+@media (max-width: 1006px) {
+  main .card-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  main .menu-button-container {
+    display: flex;
+  }
+  main .menu {
+    position: absolute;
+    top: 0;
+    margin-top: 50px;
+    left: 0;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+  main #menu-toggle ~ .menu li {
+    height: 0;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  main #menu-toggle:checked ~ .menu li {
+    border: 1px solid #333;
+    height: 2.5em;
+    padding: 0.5em;
+    transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  main .menu > li {
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0.5em 0;
+    width: 100%;
+    color: white;
+    background-color: #222;
+  }
+  main .menu > li:not(:last-child) {
+    border-bottom: 1px solid #444;
+  }
+  main .top-nav input[type="text"] {
+    width: 300px;
+  }
+}
