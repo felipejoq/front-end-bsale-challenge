@@ -30,22 +30,38 @@ li {
 }
 
 main {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
   min-height: 110vh;
   max-width: 100%;
   margin: 0;
   padding: 0;
+  position: relative;
+  /*display: block;*/
 }
 
-main .hidden {
+.selected {
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.container-hard {
+  padding: 10px;
+  min-height: 110vh;
+  max-width: 100%;
+}
+
+.hidden {
   display: none;
 }
 
-main .showing {
+.showing {
   visibility: visible;
   opacity: 1;
 }
 
-main #mensaje-info {
+#mensaje-info {
   display: flex;
   align-items: center;
   align-content: center;
@@ -54,7 +70,7 @@ main #mensaje-info {
   font-weight: bold;
 }
 
-main #mensaje-info a {
+#mensaje-info a {
   text-decoration: none;
   color: #fefefe;
   border-radius: 5px;
@@ -64,41 +80,66 @@ main #mensaje-info a {
   margin: 20px;
 }
 
-main .container-hard {
-  margin: auto;
-  padding: 10px;
+#result-title {
+  text-align: center;
 }
 
-main p {
+.footer-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  width: 100%;
+  background-color: #00baf0;
+  background: linear-gradient(to left, #f46b45, #eea849);
+  padding: 20px;
+  margin-top: 300px;
+}
+
+.text-footer {
+  color: #ffffff;
+  text-align: center;
+  font-weight: bold;
+  margin-top: auto;
+}
+
+.footer-container p {
+  margin-bottom: 2px;
+  margin-top: 2px;
+}
+
+p {
   margin: 15px 0;
   font-size: 18px;
   letter-spacing: 0.5px;
 }
 
-main .card-container {
+.card-container {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-column-gap: 10px;
 }
 
-main .card-container .image-wrapper {
+.card-container .image-wrapper {
   margin-bottom: 10px;
   box-shadow: 0 5px 8px rgba(0, 0, 0, 0.6);
   border-radius: 10px;
   overflow: hidden;
+  background-color: #ffffff;
 }
 
-main .card-container .image-wrapper img {
+.card-container .image-wrapper img {
   width: 100%;
   max-height: 250px;
   object-fit: cover;
 }
 
-main .card-container .image-wrapper.loading {
+.card-container .image-wrapper.loading {
   position: relative;
 }
 
-main .card-container .image-wrapper.loading::after {
+.card-container .image-wrapper.loading::after {
   content: "";
   position: absolute;
   background: #fefefe;
@@ -112,7 +153,7 @@ main .card-container .image-wrapper.loading::after {
   width: 100%;
 }
 
-main .loader {
+.loader {
   text-align: center;
   visibility: hidden;
   opacity: 0;
@@ -126,57 +167,57 @@ main .loader {
   animation: loader 0.5s infinite alternate;
 }
 
-main .loader.show {
+.loader.show {
   visibility: visible;
   opacity: 1;
 }
 
-main .product-info {
+.product-info {
   text-align: center;
 }
 
-main .product-name {
+.product-name {
   font-weight: 700;
   margin-top: 10px;
   margin-bottom: 10px;
   color: #393e46;
 }
 
-main .product-price {
+.product-price {
   font-weight: 700;
   color: #ff4d00;
 }
 
-main .categories-list {
+.categories-list {
   display: flex;
   align-items: center;
   justify-content: baseline;
   flex-wrap: wrap;
 }
 
-main .categories-list li {
+.categories-list li {
   text-transform: uppercase;
 }
 
-main .header {
+.header {
   display: flex;
   align-items: center;
   justify-content: baseline;
 }
 
-main .title {
+.title {
   font-size: 15px;
 }
 
-main .title a {
+.title a {
   color: #ffffff;
 }
 
-main .orange {
+.orange {
   color: #d84100;
 }
 
-main .top-nav {
+.top-nav {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -189,23 +230,23 @@ main .top-nav {
   padding: 1em;
 }
 
-main .top-nav a {
+.top-nav a {
   text-decoration: none;
   color: #ffffff;
 }
 
-main .fa-magnifying-glass {
+.fa-magnifying-glass {
   color: #d84100;
   font-weight: bold;
   font-size: 19px;
 }
 
-main .search-bar {
+.search-bar {
   display: flex;
   align-items: center;
 }
 
-main .top-nav input[type="text"] {
+.top-nav input[type="text"] {
   padding: 6px;
   border: none;
   border-radius: 5px;
@@ -214,7 +255,7 @@ main .top-nav input[type="text"] {
   width: 200px;
 }
 
-main .search-button {
+.search-button {
   cursor: pointer;
   background-color: #fefefe;
   color: #ff4d00;
@@ -226,13 +267,13 @@ main .search-button {
   border: none;
 }
 
-main .menu > li {
+.menu > li {
   margin: 0 0.5rem;
   overflow: hidden;
   cursor: pointer;
 }
 
-main .menu {
+.menu {
   display: flex;
   flex-direction: row;
   list-style-type: none;
@@ -240,11 +281,11 @@ main .menu {
   padding: 0;
 }
 
-main #menu-toggle {
+#menu-toggle {
   display: none;
 }
 
-main .menu-button,
+.menu-button,
 .menu-button::before,
 .menu-button::after {
   display: block;
@@ -256,7 +297,7 @@ main .menu-button,
   border-radius: 2px;
 }
 
-main .menu-button-container {
+.menu-button-container {
   display: none;
   height: 100%;
   width: 30px;
@@ -266,26 +307,26 @@ main .menu-button-container {
   align-items: center;
 }
 
-main .menu-button::before {
+.menu-button::before {
   content: "";
   margin-top: -8px;
 }
 
-main .menu-button::after {
+.menu-button::after {
   content: "";
   margin-top: 8px;
 }
 
-main #menu-toggle:checked + .menu-button-container .menu-button::before {
+#menu-toggle:checked + .menu-button-container .menu-button::before {
   margin-top: 0px;
   transform: rotate(405deg);
 }
 
-main #menu-toggle:checked + .menu-button-container .menu-button {
+#menu-toggle:checked + .menu-button-container .menu-button {
   background: rgba(255, 255, 255, 0);
 }
 
-main #menu-toggle:checked + .menu-button-container .menu-button::after {
+#menu-toggle:checked + .menu-button-container .menu-button::after {
   margin-top: 0px;
   transform: rotate(-405deg);
 }
@@ -300,14 +341,14 @@ main #menu-toggle:checked + .menu-button-container .menu-button::after {
 }
 
 @media (max-width: 1006px) {
-  main .card-container {
+  .card-container {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  main .menu-button-container {
+  .menu-button-container {
     display: flex;
   }
-  main .menu {
+  .menu {
     position: absolute;
     top: 0;
     margin-top: 50px;
@@ -317,20 +358,20 @@ main #menu-toggle:checked + .menu-button-container .menu-button::after {
     justify-content: center;
     align-items: center;
   }
-  main #menu-toggle ~ .menu li {
+  #menu-toggle ~ .menu li {
     height: 0;
     margin: 0;
     padding: 0;
     border: 0;
     transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
   }
-  main #menu-toggle:checked ~ .menu li {
+  #menu-toggle:checked ~ .menu li {
     border: 1px solid #333;
     height: 2.5em;
     padding: 0.5em;
     transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
   }
-  main .menu > li {
+  .menu > li {
     display: flex;
     justify-content: center;
     margin: 0;
@@ -339,10 +380,10 @@ main #menu-toggle:checked + .menu-button-container .menu-button::after {
     color: white;
     background-color: #222;
   }
-  main .menu > li:not(:last-child) {
+  .menu > li:not(:last-child) {
     border-bottom: 1px solid #444;
   }
-  main .top-nav input[type="text"] {
+  .top-nav input[type="text"] {
     width: 300px;
   }
 }

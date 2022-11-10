@@ -1,11 +1,12 @@
 
 // Globals
 let currentPage = 0;
-let sizeDefault = 12;
+let sizeDefault = 9;
 let routeDefault = "product";
 let isFetching = true;
 let currentCol = 1;
 let isResults = true;
+let idCategorySelected = 0;
 
 const urlBase = "https://bsale.uncodigo.com";
 const gridColumnCount = 4;
@@ -126,12 +127,25 @@ const loadCategories = async () => {
 
   response.forEach(category => {
     const el = document.createElement("li");
-    el.innerHTML = `<a onclick="callCategory(${category.id})"><span identify="${category.id}" id="category-${ category.id }" class="li-category">${category.name}</span></a>`;
+    el.innerHTML = `<a onclick="callCategory(${category.id})"><span id="category-${ category.id }" class="li-category">${category.name}</span></a>`;
     ul.appendChild(el);
   })
 }
 
 const callCategory = async (categoryId) => {
+
+  let unSelected = document.getElementById(`category-${idCategorySelected}`);
+  if(unSelected != null){
+    unSelected.classList.remove('selected');
+  }
+
+  let selectedNow = document.getElementById(`category-${categoryId}`);
+  selectedNow.classList.add('selected');
+
+  if(idCategorySelected === categoryId) return;
+
+  idCategorySelected = categoryId;
+
   loader.classList.add("show");
   document.getElementById("menu-toggle").checked = false;
   currentPage = 0;
@@ -160,8 +174,11 @@ const callSearch = async () => {
   resetDom();
   el.focus();
 
+  isResults = false;
+
   if(el.value.trim() === ""){
     putMessage(`<p>¡Está vacío! Ingrese algo al cuadro de búsqueda... 😅</p>`);
+    
     return;
   }
   
@@ -171,17 +188,16 @@ const callSearch = async () => {
   }
 
   const element = document.querySelector('.info')
-  element.remove();
+  if(!(element === null)) element.remove();
   titleResult.classList.remove("hidden");
   updateDom(result);
-  isResults = false;
   loader.classList.remove("show");
 }
 
 const putMessage = (msg) => {
   const elemntInfo = document.createElement("div");
   elemntInfo.classList.add('info')
-  const link = `<p class"link-to-home"><a href="/store" alt="Volver al inicio">🏡 Volver</a></p>`
+  const link = `<p class"link-to-home"><a href="/" alt="Volver al inicio">🏡 Volver</a></p>`
   titleResult.classList.add("hidden");
   let menssage = `${msg}<p>${link}</p>`;
   elemntInfo.innerHTML = menssage;
@@ -212,9 +228,12 @@ window.addEventListener("scroll", async () => {
   if (isFetching) return;
 
   // Scrolled to bottom
-  if(!isResults) return;
-  if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
-    await fetchProducts(routeDefault, currentPage, sizeDefault);
-  }
+
+  if(isResults) {
+    if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
+      await fetchProducts(routeDefault, currentPage, sizeDefault);
+    }
+  };
+  
 });
 
