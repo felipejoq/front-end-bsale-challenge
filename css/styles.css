@@ -194,6 +194,12 @@ main .top-nav a {
   color: #ffffff;
 }
 
+main .fa-magnifying-glass {
+  color: #d84100;
+  font-weight: bold;
+  font-size: 19px;
+}
+
 main .search-bar {
   display: flex;
   align-items: center;
