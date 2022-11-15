@@ -11,26 +11,26 @@
   </head>
 
   <body>
+    <section class="top-nav">
+      <div class="title">
+        <h1>
+          <a href="/">Store <span class="orange">Bsale</span></a>
+        </h1>
+      </div>
+      <input id="menu-toggle" type="checkbox" />
+      <label class="menu-button-container" for="menu-toggle">
+        <div class="menu-button"></div>
+      </label>
+      <ul id="categories-list" class="categories-list menu">
+        <li class="search-bar">
+          <input id="term" type="text" placeholder="Buscar.." />
+          <a onclick="callSearch()" class="search-button"
+            ><i class="fa-solid fa-magnifying-glass"></i
+          ></a>
+        </li>
+      </ul>
+    </section>
     <main>
-      <section class="top-nav">
-        <div class="title">
-          <h1>
-            <a href="/">Store <span class="orange">Bsale</span></a>
-          </h1>
-        </div>
-        <input id="menu-toggle" type="checkbox" />
-        <label class="menu-button-container" for="menu-toggle">
-          <div class="menu-button"></div>
-        </label>
-        <ul id="categories-list" class="categories-list menu">
-          <li class="search-bar">
-            <input id="term" type="text" placeholder="Buscar.." />
-            <a onclick="callSearch()" class="search-button"
-              ><i class="fa-solid fa-magnifying-glass"></i
-            ></a>
-          </li>
-        </ul>
-      </section>
       <p id="result-title">Lista de productos: 👇</p>
       <div class="container-hard">
         <div id="mensaje-info">
@@ -44,15 +44,16 @@
         </div>
         <div id="loader" class="loader"></div>
       </div>
-      <footer>
-        <div class="footer-container">
-          <div class="text-footer">
-            <p>Developer Felipe J.Q. 🧑‍💻 Bsale Challenge</p>
-            <p>November - 2022</p>
-          </div>
-        </div>
-      </footer>
     </main>
+
+    <footer>
+      <div class="footer-container">
+        <div class="text-footer">
+          <p>Developer Felipe J.Q. 🧑‍💻 Bsale Challenge</p>
+          <p>November - 2022</p>
+        </div>
+      </div>
+    </footer>
 
     <script src="./js/main.script.js"></script>
   </body>

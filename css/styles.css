@@ -40,6 +40,17 @@ main {
   /*display: block;*/
 }
 
+footer {
+  position: relative;
+  top: 100%;
+  bottom: 0;
+  width: 100%;
+}
+
+.col::after {
+  content: "";
+}
+
 .selected {
   font-weight: bold;
   text-decoration: underline;
@@ -93,7 +104,8 @@ main {
   background-color: #00baf0;
   background: linear-gradient(to left, #f46b45, #eea849);
   padding: 20px;
-  margin-top: 300px;
+  position: relative;
+  bottom: 0;
 }
 
 .text-footer {
@@ -126,6 +138,7 @@ p {
   border-radius: 10px;
   overflow: hidden;
   background-color: #ffffff;
+  position: relative;
 }
 
 .card-container .image-wrapper img {
@@ -185,6 +198,8 @@ p {
 .product-price {
   font-weight: 700;
   color: #ff4d00;
+  position: relative;
+  bottom: 0;
 }
 
 .categories-list {
@@ -344,6 +359,13 @@ p {
     grid-template-columns: repeat(2, 1fr);
   }
 
+  footer {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    margin-top: 400px;
+  }
+
   .menu-button-container {
     display: flex;
   }
@@ -356,6 +378,7 @@ p {
     width: 100%;
     justify-content: center;
     align-items: center;
+    z-index: 4;
   }
   #menu-toggle ~ .menu li {
     height: 0;
@@ -384,5 +407,32 @@ p {
   }
   .top-nav input[type="text"] {
     width: 300px;
+  }
+}
+
+@media (max-width: 600px) {
+  .card-container {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  footer {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    top: 100%;
+  }
+}
+
+@media (max-width: 300px) {
+  .card-container {
+    grid-template-columns: repeat(1, 1fr);
+    margin-bottom: 100px;
+  }
+
+  footer {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    top: 100%;
   }
 }
