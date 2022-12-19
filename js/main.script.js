@@ -8,15 +8,13 @@ let currentCol = 1;
 let isResults = true;
 let idCategorySelected = 0;
 
-const urlBase = "https://bsale.uncodigo.com";
+const urlBase = "http://localhost:3000";
 const gridColumnCount = 4;
 const cardContainer = document.getElementById("card-container");
 const loader = document.getElementById("loader");
 const infoMessage = document.getElementById("mensaje-info");
 const titleResult = document.getElementById("result-title");
 const el = document.getElementById("term");
-
-
 
 const fetching = async (url) => {
 
@@ -132,7 +130,7 @@ const loadCategories = async () => {
   })
 }
 
-const callCategory = async (categoryId) => {
+const callCategory = async (categoryId) => {
 
   let unSelected = document.getElementById(`category-${idCategorySelected}`);
   if(unSelected != null){
@@ -217,6 +215,13 @@ const resetDom = () => {
     cardContainer.appendChild(col);
   }
 }
+
+el.addEventListener('keyup', (e) => {
+  var code = e.key === "Enter" ? e.key : ""
+  if(code == "Enter") { 
+    callSearch();
+  }
+})  
 
 window.addEventListener("DOMContentLoaded", async (event) => {
     await loadCategories();
