@@ -8,7 +8,7 @@ let currentCol = 1;
 let isResults = true;
 let idCategorySelected = 0;
 
-const urlBase = "http://localhost:3000";
+const urlBase = "https://bsale.uncodigo.com";
 const gridColumnCount = 4;
 const cardContainer = document.getElementById("card-container");
 const loader = document.getElementById("loader");
